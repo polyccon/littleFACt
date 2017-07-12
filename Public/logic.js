@@ -23,18 +23,17 @@
 
         var data = JSON.parse(xhr.responseText);
         var keys = Object.keys(data.query.pages);
-        var key = Number(keys[0]);
-        console.log(key);
         var destinationDrop = document.getElementById("destination");
-        var destinationName = data.query.pages;
+        var destinationName = data.query.pages[keys[0]].title;
         destinationDrop.textContent = destinationName;
 
         var extractDrop = document.getElementById("destination-extract");
-        var extract = data.extract;
-        extractDrop.textContent = extract;
+        var extr = data.query.pages[keys[0]].extract.replace(/(&nbsp;|<([^>]+)>)/ig, "");
+        extractDrop.textContent = extr;
         // var name = data.name;
         // nameDrop.textContent = name;
         console.log(destinationName);
+        console.log(data);
       }
     }
 

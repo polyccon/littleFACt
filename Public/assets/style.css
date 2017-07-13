@@ -5,20 +5,24 @@ body {
   align-content: center;
   color: #333e4f;
 }
+
 .header {
   display: flex;
   justify-content: center;
 }
+
 section {
   display: flex;
   justify-content: center;
 }
+
 form {
   display: flex;
   justify-content: center;
   flex-direction: column;
   width: 90%;
   font-size: 8vw;
+  cursor: pointer;
 }
 
 label {
@@ -28,7 +32,7 @@ label {
 }
 
 input:focus {
-background-color: #f0c062;
+  background-color: #f0c062;
 }
 
 input[type="text"] {
@@ -50,23 +54,26 @@ input[type="submit"] {
   font-family: 'Abril Fatface', cursive;
 
 
-  /*font-family: 'Shrikhand', cursive;*/
+
 }
 
 h1 {
   font-size: 15vw;
   font-family: 'Shrikhand', cursive;
 }
+
 h2 {
   font-family: 'Shrikhand', cursive;
   font-size: 8vw;
   margin-left: 10vw;
 }
+
 p {
   font-size: 5vw;
   font-family: 'Slabo 27px', serif;
   margin: 10vw;
 }
+
 
 #linesHeader{
   font-family: 'Shrikhand', cursive;
@@ -80,23 +87,40 @@ p {
   text-align: center;
   border-radius: 1.5vw;
 }*/
+
+#tfl-results {
+  margin: 2vh auto;
+}
+
+
 .animated {
-animation-duration: 2.5s;
-animation-fill-mode: both;
-animation-iteration-count: infinite;
+  animation-duration: 2.5s;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+  color: rgb(71, 43, 45)
 }
+
 @keyframes pulse {
-0% {transform: scale(1);}
-50% {transform: scale(1.1);}
-100% {transform: scale(1);}
+  0% {
+    transform: scale(2);
+  }
+  50% {
+    transform: scale(2.5);
+  }
+  100% {
+    transform: scale(2);
+  }
 }
+
 .pulse {
-animation-name: pulse;
-animation-duration: 1s;
+  animation-name: pulse;
+  animation-duration: 1s;
 }
+
 .grad {
-  background: #d6f9ff; / Old browsers /
-  background-color: -moz-linear-gradient(top, #d6f9ff 0%, #9ee8fa 100%); / FF3.6-15 /
-  background-color: -webkit-linear-gradient(top, #d6f9ff 0%,#9ee8fa 100%); / Chrome10-25,Safari5.1-6 /
-  background-color: linear-gradient(to bottom, #d6f9ff 0%,#9ee8fa 100%); / W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ /
+  background: #d6f9ff;
+  / Old browsers / background-color: -moz-linear-gradient(top, #d6f9ff 0%, #9ee8fa 100%);
+  / FF3.6-15 / background-color: -webkit-linear-gradient(top, #d6f9ff 0%, #9ee8fa 100%);
+  / Chrome10-25, Safari5.1-6 / background-color: linear-gradient(to bottom, #d6f9ff 0%, #9ee8fa 100%);
+  / W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+/
 }

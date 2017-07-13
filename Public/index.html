@@ -15,23 +15,25 @@
 
 <body class="grad">
   <div class="header">
-    <h1>Little FACt</h1>
+    <h1>little FACt</h1>
   </div>
 
   <section class="journey-planner">
     <form id="from-to">
-      <label for = "from">Where from?</label>
-      <input type="text" placeholder="E.g. Brixton " value="Haggerston" id="from" autofocus="" aria-label="">
-      <label for = "to">Where to?</label>
-      <input type="text"  placeholder="E.g. Bethnal Green" value="Victoria" id="to" autofocus="" aria-label="">
+      <label for="from">Where from?</label>
+      <input type="text" placeholder="E.g. Brixton" id="from" autofocus="" aria-label="">
+      <label for="to">Where to?</label>
+      <input type="text" placeholder="E.g. Bethnal Green" id="to" autofocus="" aria-label="">
       <input type="submit" value="Submit">
     </form>
   </section>
 
-<section id = "tfl-results" style="display: none">
-  <p>In&nbsp;<span id = "duration" class="animated pulse"></span>&nbsp;minutes you will arrive!</p>
-  <p id ="lines"><span id="linesHeader">Lines</span></p>
-</section>
+
+  <section id="tfl-results" style="display: none">
+    <p class="animated pulse"><span id="duration"></span>&nbsp;minutes!</p>
+    <p id="lines"><span id="linesHeader">Lines</span></p>
+  </section>
+
 
   <section id="fun-fact" style="display: none">
     <h2>Did you know?<p id="destination"></p></h2>

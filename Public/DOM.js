@@ -1,18 +1,16 @@
+(function() {
 
-
-(function( ){
-
-  document.getElementById("from-to").addEventListener("submit",function(event) {
+  document.getElementById("from-to").addEventListener("submit", function(event) {
     event.preventDefault();
-    var from =document.getElementById("from-to")[0].value
-    var inputTo =  document.getElementById("from-to")[1].value
-    var to = document.getElementById("from-to")[1].value ;
+    var from = document.getElementById("from-to")[0].value
+    var inputTo = document.getElementById("from-to")[1].value
+    var to = document.getElementById("from-to")[1].value;
 
-    if (from.indexOf('station') === -1 ) {
-      from += "station" ;
+    if (from.indexOf('station') === -1) {
+      from += "station";
     }
-    if (to.indexOf('station') === -1 ) {
-       to += "station" ;
+    if (to.indexOf('station') === -1) {
+      to += "station";
     }
     // CODE FOR WIKI STATION-API PROBLEM
     //if (inputTo.indexOf('station') !== -1 ) {
@@ -20,25 +18,27 @@
     // }
     // console.log(inputTo);
 
+
     tflAPI(tflURL(from,to), function (resultsToShow) {
 
 
        document.getElementById('duration').textContent = resultsToShow.journeys[0].duration;
        document.getElementById('tfl-results').style.display = 'block';
 
-var lineLeg = resultsToShow.journeys[0].legs;
-console.log(lineLeg);
- lineLeg.forEach(function(line){
-   console.log(line.routeOptions[0].name);
-  var newline = document.createElement('p');
-  newline.textContent = line.routeOptions[0].name ;
-  document.getElementById("lines").appendChild(newline);
 
- })
+      var lineLeg = resultsToShow.journeys[0].legs;
+      console.log(lineLeg);
+      lineLeg.forEach(function(line) {
+        console.log(line.routeOptions[0].name);
+        var newline = document.createElement('p');
+        newline.textContent = line.routeOptions[0].name;
+        document.getElementById("lines").appendChild(newline);
 
-    } )
+      })
 
-  wikiApi(inputTo);
+    })
+
+    wikiApi(inputTo);
   })
 
 

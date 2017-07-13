@@ -1,15 +1,19 @@
-function wikiApi (inputTo) {
-  console.log(inputTo);
-
-  var array = inputTo.toLowerCase().split(" ");
+function destStr(string) {
+  var array = string.toLowerCase().split(" ");
   var arr = array.map(function(x) {
     return x.slice(0, 1).toUpperCase() + x.slice(1);
   });
-  var destString = arr.join("%20");
-
-  if (destString === "Angel" || destString === "Bank" || destString === "Borough" || destString == "Barbican" || destString === "Monument" || destString === "Oval" || destString === "Wimbledon" || destString === "Temple") {
-    destString = destString + ",%20London";
+  var str = arr.join("%20");
+  if (str === "Angel" || str === "Bank" || str === "Borough" || str == "Barbican" || str === "Monument" || str === "Oval" || str === "Wimbledon" || str === "Temple") {
+    str = str + ",%20London";
   }
+  return str;
+}
+
+
+function wikiApi(inputTo) {
+
+  var destString = destStr(inputTo);
   var wikiURL = "https://cors-anywhere.herokuapp.com/https://en.wikipedia.org/w/api.php?action=query&prop=extracts&format=json&exintro=&titles=" + destString;
 
   function wikiExtract() {
@@ -19,8 +23,11 @@ function wikiApi (inputTo) {
 
         var data = JSON.parse(xhr.responseText);
         var keys = Object.keys(data.query.pages);
-        var destinationDrop = document.getElementById("destination");
         var destinationName = data.query.pages[keys[0]].title;
+
+        var destinationDrop = document.getElementById("destination");
+
+
         destinationDrop.textContent = destinationName;
 
         var extractDrop = document.getElementById("destination-extract");
@@ -28,7 +35,7 @@ function wikiApi (inputTo) {
         extractDrop.textContent = extr;
 
         if (extr.length < 50) {
-          destString = arr.join("%20") + ",%20London";
+          destString = destString + ",%20London";
           wikiURL = "https://cors-anywhere.herokuapp.com/https://en.wikipedia.org/w/api.php?action=query&prop=extracts&format=json&exintro=&titles=" + destString;
           wikiExtract();
           console.log(destinationName);
@@ -37,9 +44,8 @@ function wikiApi (inputTo) {
             extractDrop.textContent = "Sorry! " + destinationName + " doesn't seem to have a wikipedia page yet, why don't you make one yourself?"
           }
         }
-
       }
-document.getElementById('fun-fact').style.display = 'block';
+      document.getElementById('fun-fact').style.display = 'block';
     }
 
     xhr.open("GET", wikiURL, true);
@@ -50,12 +56,12 @@ document.getElementById('fun-fact').style.display = 'block';
 
 
 /*function to build TFL Api URL*/
-function tflURL ( from, to ) {
+function tflURL(from, to) {
   var TFL_API = "https://api.tfl.gov.uk/journey/journeyresults/"
   var TFL_key = "?app_id=11944170&app_key=b5950c6792c4a2e09bb2331e499ff205"
   var url = TFL_API + from + "/to/" + to + TFL_key;
-console.log(url);
-return url ;
+  console.log(url);
+  return url;
 }
 
 
@@ -75,7 +81,7 @@ function tflAPI(url, callback) {
       var newTo = responseObj.toLocationDisambiguation.disambiguationOptions[0].place.icsCode;
       console.log(newTo);
       //GRAB ICS CODE AND PASS ONTO RENDER
-      tflAPI(tflURL(newFrom, newTo), callback );
+      tflAPI(tflURL(newFrom, newTo), callback);
     }
 
     if (xhr.readyState == 4 && xhr.status == 200) {
@@ -137,5 +143,8 @@ function tflAPI(url, callback) {
 
 
 if (typeof module !== 'undefined') {
-  module.exports = {tflURL};
+  module.exports = {
+    tflURL,
+    destStr
+  };
 }

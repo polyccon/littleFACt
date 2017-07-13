@@ -48,12 +48,20 @@ function wikiApi (inputTo) {
 };
 
 
-
-function tflAPI(from, to, callback) {
+/*function to build TFL Api URL*/
+function tflURL ( from, to ) {
   var TFL_API = "https://api.tfl.gov.uk/journey/journeyresults/"
   var TFL_key = "?app_id=11944170&app_key=b5950c6792c4a2e09bb2331e499ff205"
   var url = TFL_API + from + "/to/" + to + TFL_key;
-  console.log(url);
+console.log(url);
+return url ;
+}
+
+
+
+
+
+function tflAPI(url, callback) {
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function() {
     console.log("readystate", xhr.readyState);
@@ -66,7 +74,7 @@ function tflAPI(from, to, callback) {
       var newTo = responseObj.toLocationDisambiguation.disambiguationOptions[0].place.icsCode;
       console.log(newTo);
       //GRAB ICS CODE AND PASS ONTO RENDER
-      tflAPI(newFrom, newTo, callback);
+      tflAPI(tflURL(newFrom, newTo), callback );
     }
 
     if (xhr.readyState == 4 && xhr.status == 200) {
@@ -128,6 +136,5 @@ function tflAPI(from, to, callback) {
 
 
 if (typeof module !== 'undefined') {
-  module.exports = tflAPI;
-  module.exports = wikiExtract;
+  module.exports = {tflURL};
 }

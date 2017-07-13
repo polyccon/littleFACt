@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for Public/logic.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">Public/</a> logic.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">18.64% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>11/59</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">3.57% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>1/28</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">14.29% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/7</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">18.64% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>11/59</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="fstat-no" title="function not covered" >function wikiApi (inputTo) {</span>
+<span class="cstat-no" title="statement not covered" >  console.log(inputTo);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  var array = inputTo.toLowerCase().split(" ");</span>
+<span class="cstat-no" title="statement not covered" >  var arr = array.map(<span class="fstat-no" title="function not covered" >function(x) {</span></span>
+<span class="cstat-no" title="statement not covered" >    return x.slice(0, 1).toUpperCase() + x.slice(1);</span>
+  });
+<span class="cstat-no" title="statement not covered" >  var destString = arr.join("%20");</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  if (destString === "Angel" || destString === "Bank" || destString === "Borough" || destString == "Barbican" || destString === "Monument" || destString === "Oval" || destString === "Wimbledon" || destString === "Temple") {</span>
+<span class="cstat-no" title="statement not covered" >    destString = destString + ",%20London";</span>
+  }
+<span class="cstat-no" title="statement not covered" >  var wikiURL = "https://cors-anywhere.herokuapp.com/https://en.wikipedia.org/w/api.php?action=query&amp;prop=extracts&amp;format=json&amp;exintro=&amp;titles=" + destString;</span>
+&nbsp;
+<span class="fstat-no" title="function not covered" >  function wikiExtract() {</span>
+<span class="cstat-no" title="statement not covered" >    var xhr = new XMLHttpRequest();</span>
+<span class="cstat-no" title="statement not covered" >    xhr.onreadystatechange = <span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >      if (xhr.readyState == 4 &amp;&amp; xhr.status == 200) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        var data = JSON.parse(xhr.responseText);</span>
+<span class="cstat-no" title="statement not covered" >        var keys = Object.keys(data.query.pages);</span>
+<span class="cstat-no" title="statement not covered" >        var destinationDrop = document.getElementById("destination");</span>
+<span class="cstat-no" title="statement not covered" >        var destinationName = data.query.pages[keys[0]].title;</span>
+<span class="cstat-no" title="statement not covered" >        destinationDrop.textContent = destinationName;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        var extractDrop = document.getElementById("destination-extract");</span>
+<span class="cstat-no" title="statement not covered" >        var extr = data.query.pages[keys[0]].extract.replace(/(&amp;nbsp;|&lt;([^&gt;]+)&gt;)/ig, "");</span>
+<span class="cstat-no" title="statement not covered" >        extractDrop.textContent = extr;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (extr.length &lt; 50) {</span>
+<span class="cstat-no" title="statement not covered" >          destString = arr.join("%20") + ",%20London";</span>
+<span class="cstat-no" title="statement not covered" >          wikiURL = "https://cors-anywhere.herokuapp.com/https://en.wikipedia.org/w/api.php?action=query&amp;prop=extracts&amp;format=json&amp;exintro=&amp;titles=" + destString;</span>
+<span class="cstat-no" title="statement not covered" >          wikiExtract();</span>
+<span class="cstat-no" title="statement not covered" >          console.log(destinationName);</span>
+<span class="cstat-no" title="statement not covered" >          console.log(data);</span>
+<span class="cstat-no" title="statement not covered" >          if (extr === "") {</span>
+<span class="cstat-no" title="statement not covered" >            extractDrop.textContent = "Sorry! " + destinationName + " doesn't seem to have a wikipedia page yet, why don't you make one yourself?"</span>
+          }
+        }
+&nbsp;
+      }
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    xhr.open("GET", wikiURL, true);</span>
+<span class="cstat-no" title="statement not covered" >    xhr.send();</span>
+  }
+<span class="cstat-no" title="statement not covered" >  wikiExtract();</span>
+};
+&nbsp;
+&nbsp;
+/*function to build TFL Api URL*/
+function tflURL ( from, to ) {
+  var TFL_API = "https://api.tfl.gov.uk/journey/journeyresults/"
+  var TFL_key = "?app_id=11944170&amp;app_key=b5950c6792c4a2e09bb2331e499ff205"
+  var url = TFL_API + from + "/to/" + to + TFL_key;
+console.log(url);
+return url ;
+}
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+<span class="fstat-no" title="function not covered" >function tflAPI(url, callback) {</span>
+<span class="cstat-no" title="statement not covered" >  var xhr = new XMLHttpRequest();</span>
+<span class="cstat-no" title="statement not covered" >  xhr.onreadystatechange = <span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >    console.log("readystate", xhr.readyState);</span>
+<span class="cstat-no" title="statement not covered" >    console.log("status", xhr.status);</span>
+<span class="cstat-no" title="statement not covered" >    if (xhr.readyState == 4 &amp;&amp; xhr.status == 300) {</span>
+<span class="cstat-no" title="statement not covered" >      var responseObj = JSON.parse(xhr.responseText);</span>
+<span class="cstat-no" title="statement not covered" >      console.log(responseObj);</span>
+<span class="cstat-no" title="statement not covered" >      var newFrom = responseObj.fromLocationDisambiguation.disambiguationOptions[0].place.icsCode;</span>
+<span class="cstat-no" title="statement not covered" >      console.log(newFrom);</span>
+<span class="cstat-no" title="statement not covered" >      var newTo = responseObj.toLocationDisambiguation.disambiguationOptions[0].place.icsCode;</span>
+<span class="cstat-no" title="statement not covered" >      console.log(newTo);</span>
+      //GRAB ICS CODE AND PASS ONTO RENDER
+<span class="cstat-no" title="statement not covered" >      tflAPI(tflURL(newFrom, newTo), callback );</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (xhr.readyState == 4 &amp;&amp; xhr.status == 200) {</span>
+<span class="cstat-no" title="statement not covered" >      var responseObj200 = JSON.parse(xhr.responseText);</span>
+<span class="cstat-no" title="statement not covered" >      console.log(responseObj200);</span>
+<span class="cstat-no" title="statement not covered" >      callback(responseObj200);</span>
+    }
+  }
+<span class="cstat-no" title="statement not covered" >  xhr.open("GET", url, true);</span>
+<span class="cstat-no" title="statement not covered" >  xhr.send();</span>
+};
+&nbsp;
+//
+// /* Parellel function */
+//
+// function parallel(tasks, callback) {
+//   // new code goes in this function here!
+//   var results = [];
+//   var count = 0;
+//   tasks.forEach(function(task, index) {
+//     task(function(err, result) {
+//       // if there's an error, call THE callback
+//       if (err) {
+//         callback(err, null);
+//         return;
+//       }
+//       // push results to results array and increment counter. uses index to push results in the right order
+//       results[index] = result;
+//       count++;
+//       // if all tasks have completed, call THE callback
+//       if (count === tasks.length) {
+//         callback(undefined, results);
+//       }
+//     })
+//   })
+// }
+// parallel([
+//   function(callback) {
+//     setTimeout(function() {
+//       callback(undefined, 1);
+//     }, 2000);
+//   },
+//   function(callback) {
+//     setTimeout(function() {
+//       callback(undefined, 2);
+//     }, 1000);
+//   },
+//   function(callback) {
+//     setTimeout(function() {
+//       callback(undefined, 3);
+//     }, 1500);
+//   },
+//
+// ], function(err, result) {
+//   console.log('err', err); // undefined
+//   console.log('result', result); // [1,2,3]
+// });
+&nbsp;
+&nbsp;
+&nbsp;
+<span class="missing-if-branch" title="else path not taken" >E</span>if (typeof module !== 'undefined') {
+  module.exports = {tflURL};
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Jul 13 2017 17:08:39 GMT+0100 (BST)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

@@ -1,12 +1,18 @@
 var test = require('tape');
 var logic = require('../Public/logic.js');
 
-//Tests for wikiExtract function heavily depends on the DOM and browser functionality
-//so as this is a complicated problem we focused on improving our code by testing for various inputs
-//and directly looking at the index.html page results
-test('wikiExtract return string', function(t) {
-  var actual = typeof wikiExtract("anything");
+
+//Test for tflURL Function
+test('tflURL', function(t) {
+  var actual = typeof logic.tflURL("apples","oranges");
   var expected = "string"
-  t.equal(actual, expected, 'wikiExtract should return a string');
+  t.equal(actual, expected, 'TFLUrl should return a string');
+  t.end();
+});
+
+test('tflURL', function(t) {
+  var actual =  logic.tflURL("hello","world");
+  var expected = "https://api.tfl.gov.uk/journey/journeyresults/hello/to/world?app_id=11944170&app_key=b5950c6792c4a2e09bb2331e499ff205"
+  t.equal(actual, expected, 'TFLUrl correctly concatonates url');
   t.end();
 });

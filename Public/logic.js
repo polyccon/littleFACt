@@ -1,4 +1,4 @@
-function wikiApi (inputTo) {
+function wikiApi(inputTo) {
   console.log(inputTo);
 
   var array = inputTo.toLowerCase().split(" ");
@@ -19,9 +19,9 @@ function wikiApi (inputTo) {
 
         var data = JSON.parse(xhr.responseText);
         var keys = Object.keys(data.query.pages);
-        var destinationDrop = document.getElementById("destination");
-        var destinationName = data.query.pages[keys[0]].title;
-        destinationDrop.textContent = destinationName;
+        // var destinationDrop = document.getElementById("destination");
+        // var destinationName = data.query.pages[keys[0]].title;
+        // destinationDrop.textContent = destinationName;
 
         var extractDrop = document.getElementById("destination-extract");
         var extr = data.query.pages[keys[0]].extract.replace(/(&nbsp;|<([^>]+)>)/ig, "");
@@ -39,7 +39,7 @@ function wikiApi (inputTo) {
         }
 
       }
-document.getElementById('fun-fact').style.display = 'block';
+      document.getElementById('fun-fact').style.display = 'block';
     }
 
     xhr.open("GET", wikiURL, true);
@@ -50,12 +50,12 @@ document.getElementById('fun-fact').style.display = 'block';
 
 
 /*function to build TFL Api URL*/
-function tflURL ( from, to ) {
+function tflURL(from, to) {
   var TFL_API = "https://api.tfl.gov.uk/journey/journeyresults/"
   var TFL_key = "?app_id=11944170&app_key=b5950c6792c4a2e09bb2331e499ff205"
   var url = TFL_API + from + "/to/" + to + TFL_key;
-console.log(url);
-return url ;
+  console.log(url);
+  return url;
 }
 
 
@@ -75,7 +75,7 @@ function tflAPI(url, callback) {
       var newTo = responseObj.toLocationDisambiguation.disambiguationOptions[0].place.icsCode;
       console.log(newTo);
       //GRAB ICS CODE AND PASS ONTO RENDER
-      tflAPI(tflURL(newFrom, newTo), callback );
+      tflAPI(tflURL(newFrom, newTo), callback);
     }
 
     if (xhr.readyState == 4 && xhr.status == 200) {
@@ -137,5 +137,7 @@ function tflAPI(url, callback) {
 
 
 if (typeof module !== 'undefined') {
-  module.exports = {tflURL};
+  module.exports = {
+    tflURL
+  };
 }

@@ -6,28 +6,33 @@
   <title>Little FACt</title>
   <link rel="stylesheet" href="./assets/style.css" media="screen" title="no title">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Shrikhand" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Caveat" rel="stylesheet">
+
 </head>
 
-<body>
+<body class="grad">
   <div class="header">
     <h1>Little FACt</h1>
   </div>
 
   <section class="journey-planner">
     <form id="from-to">
-      <input type="text" placeholder="Add a starting point" autofocus="" aria-label="">
-      <input type="text"  placeholder="Add a destination" autofocus="" aria-label="">
+      <label for = "from">Where from?</label>
+      <input type="text" placeholder="E.g. Brixton " value="Haggerston" id="from" autofocus="" aria-label="">
+      <label for = "to">Where to?</label>
+      <input type="text"  placeholder="E.g. Bethnal Green" value="Victoria" id="to" autofocus="" aria-label="">
       <input type="submit" value="Submit">
     </form>
   </section>
 
-<section id = "tfl-results" >
-  <div >In&nbsp;<span id = "duration"></span>&nbsp;minutes you will arrive!</div>
-  <div id ="lines">  </div>
+<section id = "tfl-results" style="display: none">
+  <p>In&nbsp;<span id = "duration" class="animated pulse"></span>&nbsp;minutes you will arrive!</p>
+  <p id ="lines"></p>
 </section>
 
-  <section class="fun-fact">
-    <h2>Fun fact about <p id="destination"></p></h2>
+  <section id="fun-fact" style="display: none">
+    <h2>Did you know?<p id="destination"></p></h2>
     <p id="destination-extract"></p>
     <!--  <h4>More cool stuff in this area</h4>
         <ul>

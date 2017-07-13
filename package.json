@@ -4,7 +4,7 @@
   "description": "",
   "main": "tests.js",
   "scripts": {
-    "test": "node test.js | tap-spec"
+    "test": "node tests/test.js | tap-spec"
   },
   "keywords": [],
   "author": "Yahia_Zaky <zaky20@hotmail.com>",

@@ -1,7 +1,7 @@
-(function() {
-  var to = document.getElementById("from-to")[1].value;
+function wikiApi (inputTo) {
+  console.log(inputTo);
 
-  var array = to.toLowerCase().split(" ");
+  var array = inputTo.toLowerCase().split(" ");
   var arr = array.map(function(x) {
     return x.slice(0, 1).toUpperCase() + x.slice(1);
   });
@@ -45,7 +45,7 @@
     xhr.send();
   }
   wikiExtract();
-})();
+};
 
 
 

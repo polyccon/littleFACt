@@ -1,16 +1,4 @@
-// var api = {}
-//
-//
-//
-//
-//
-//
-//
-//
-//
-// if (typeof module !== 'undefined') {
-//   module.exports = api;
-// }
+
 
 (function() {
   var to = document.getElementById("from-to")[1].value;
@@ -21,7 +9,7 @@
   });
   var destString = arr.join("%20");
 
-  if (destString === "Angel" || destString=== "Bank" || destString === "Borough" || destString == "Barbican" || destString === "Monument" || destString === "Oval" || destString === "Wimbledon" || destString === "Temple") {
+  if (destString === "Angel" || destString === "Bank" || destString === "Borough" || destString == "Barbican" || destString === "Monument" || destString === "Oval" || destString === "Wimbledon" || destString === "Temple") {
     destString = destString + ",%20London";
   }
   var wikiURL = "https://cors-anywhere.herokuapp.com/https://en.wikipedia.org/w/api.php?action=query&prop=extracts&format=json&exintro=&titles=" + destString;
@@ -51,10 +39,7 @@
             extractDrop.textContent = "Sorry! " + destinationName + " doesn't seem to have a wikipedia page yet, why don't you make one yourself?"
           }
         }
-        // var name = data.name;
-        // nameDrop.textContent = name;
-        console.log(destinationName);
-        console.log(data);
+
       }
     }
 
@@ -66,33 +51,35 @@
 
 
 
-
-function tflAPI(from, to) {
+function tflAPI(from, to, callback) {
   var TFL_API = "https://api.tfl.gov.uk/journey/journeyresults/"
-  // var TFL_key = "?app_id={{11944170}}&app_key={{b5950c6792c4a2e09bb2331e499ff205}}"
-
-
-  var url = TFL_API + from + "/to/" + to
+  var TFL_key = "?app_id=11944170&app_key=b5950c6792c4a2e09bb2331e499ff205"
+  var url = TFL_API + from + "/to/" + to + TFL_key;
   console.log(url);
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function() {
-    if (xhr.readyState == 4 && xhr.status == 200) {
+    console.log("readystate", xhr.readyState);
+    console.log("status", xhr.status);
+    if (xhr.readyState == 4 && xhr.status == 300) {
       var responseObj = JSON.parse(xhr.responseText);
+      console.log(responseObj);
+      var newFrom = responseObj.fromLocationDisambiguation.disambiguationOptions[0].place.icsCode;
+      console.log(newFrom);
+      var newTo = responseObj.toLocationDisambiguation.disambiguationOptions[0].place.icsCode;
+      console.log(newTo);
+      //GRAB ICS CODE AND PASS ONTO RENDER
+      tflAPI(newFrom, newTo, callback);
+    }
 
-      callback(responseObj);
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      var responseObj200 = JSON.parse(xhr.responseText);
+      console.log(responseObj200);
+      callback(responseObj200);
     }
   }
   xhr.open("GET", url, true);
   xhr.send();
-
-
-
 };
-
-
-
-
-
 
 
 
@@ -101,5 +88,3 @@ if (typeof module !== 'undefined') {
   module.exports = tflAPI;
   module.exports = wikiExtract;
 }
-
-// westminsterstation/to/bankstation?app_id={{11944170}}&app_key={{b5950c6792c4a2e09bb2331e499ff205}}

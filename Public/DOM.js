@@ -28,11 +28,12 @@
 
       var lineLeg = resultsToShow.journeys[0].legs;
       console.log(lineLeg);
+      var linesNode = document.getElementById('lines');
+      linesNode.innerHTML = "";
       lineLeg.forEach(function(line) {
-        console.log(line.routeOptions[0].name);
         var newline = document.createElement('p');
         newline.textContent = line.routeOptions[0].name;
-        document.getElementById("lines").appendChild(newline);
+        linesNode.appendChild(newline);
 
       })
 

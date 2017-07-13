@@ -24,6 +24,7 @@
 
 
        document.getElementById('duration').textContent = resultsToShow.journeys[0].duration;
+       document.getElementById('tfl-results').style.display = 'block';
 
 var lineLeg = resultsToShow.journeys[0].legs;
 console.log(lineLeg);

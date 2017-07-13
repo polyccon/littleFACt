@@ -39,6 +39,7 @@ function wikiApi (inputTo) {
         }
 
       }
+document.getElementById('fun-fact').style.display = 'block';
     }
 
     xhr.open("GET", wikiURL, true);

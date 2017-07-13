@@ -44,14 +44,17 @@ input[type="text"] {
 }
 
 input[type="submit"] {
-  font-size: 5vw;
+  font-size: 6vw;
   background-color: #404e62;
   border-radius: 1.5vw;
-  padding: 1vw;
+  padding: 2vw;
   margin: 1vw;
   border-color: #333e4f;
   color: white;
-  /*font-family: 'Shrikhand', cursive;*/
+  font-family: 'Abril Fatface', cursive;
+
+
+
 }
 
 h1 {
@@ -60,18 +63,35 @@ h1 {
 }
 
 h2 {
-  font-size: 5vw;
   font-family: 'Shrikhand', cursive;
   font-size: 8vw;
+  margin-left: 10vw;
 }
 
 p {
   font-size: 5vw;
+  font-family: 'Slabo 27px', serif;
+  margin: 10vw;
 }
+
+
+#linesHeader{
+  font-family: 'Shrikhand', cursive;
+  font-size: 6vw;
+}
+
+/*#lines {
+  background: tomato;
+  padding: 5px;
+  margin: 8vw;
+  text-align: center;
+  border-radius: 1.5vw;
+}*/
 
 #tfl-results {
   margin: 2vh auto;
 }
+
 
 .animated {
   animation-duration: 2.5s;

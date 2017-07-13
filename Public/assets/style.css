@@ -52,9 +52,6 @@ input[type="submit"] {
   border-color: #333e4f;
   color: white;
   font-family: 'Abril Fatface', cursive;
-
-
-
 }
 
 h1 {
@@ -68,17 +65,26 @@ h2 {
   margin-left: 10vw;
 }
 
+#destination-extract {
+  margin: 0 7vw 8vw 7vw;
+}
+
 p {
   font-size: 5vw;
   font-family: 'Slabo 27px', serif;
-  margin: 10vw;
+  /*margin: 10vw;*/
 }
 
+#tfl-results {
+  margin: 2vh auto;
+}
 
-#linesHeader{
+#linesHeader {
   font-family: 'Shrikhand', cursive;
-  font-size: 6vw;
+  font-size: 8vw;
+  /*margin: 0 0 0 10vw !important;*/
 }
+
 
 /*#lines {
   background: tomato;
@@ -87,11 +93,6 @@ p {
   text-align: center;
   border-radius: 1.5vw;
 }*/
-
-#tfl-results {
-  margin: 2vh auto;
-}
-
 
 .animated {
   animation-duration: 2.5s;

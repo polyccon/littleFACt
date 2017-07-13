@@ -28,7 +28,7 @@ function wikiApi(inputTo) {
         var destinationDrop = document.getElementById("destination");
 
 
-        destinationDrop.textContent = destinationName;
+        // destinationDrop.textContent = destinationName;
 
         var extractDrop = document.getElementById("destination-extract");
         var extr = data.query.pages[keys[0]].extract.replace(/(&nbsp;|<([^>]+)>)/ig, "");

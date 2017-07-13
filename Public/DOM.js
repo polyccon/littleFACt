@@ -4,13 +4,20 @@
 
   document.getElementById("from-to").addEventListener("submit",function(event) {
     event.preventDefault();
-    var from = document.getElementById("from-to")[0].value ;
-    console.log("cadf", from);
-    var to = document.getElementById("from-to")[1].value ;
+    var from =document.getElementById("from-to")[0].value
+    var to =  document.getElementById("from-to")[1].value
+
+    if (from.indexOf('station') === -1 ) {
+      from += "station" ;
+    }
+    if (to.indexOf('station') === -1 ) {
+      to += "station" ;
+    }
+
 
     tflAPI(from,to, function (resultsToShow) {
 
-console.log(resultsToShow);
+
        document.getElementById('duration').textContent = resultsToShow.journeys[0].duration;
 
 var lineLeg = resultsToShow.journeys[0].legs;

@@ -22,6 +22,7 @@ form {
   flex-direction: column;
   width: 90%;
   font-size: 8vw;
+  cursor: pointer;
 }
 
 label {
@@ -69,24 +70,25 @@ p {
 }
 
 #tfl-results {
-  margin: auto;
+  margin: 2vh auto;
 }
 
 .animated {
   animation-duration: 2.5s;
   animation-fill-mode: both;
   animation-iteration-count: infinite;
+  color: rgb(71, 43, 45)
 }
 
 @keyframes pulse {
   0% {
-    transform: scale(1);
+    transform: scale(2);
   }
   50% {
-    transform: scale(1.2);
+    transform: scale(2.5);
   }
   100% {
-    transform: scale(1);
+    transform: scale(2);
   }
 }
 

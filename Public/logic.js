@@ -13,7 +13,14 @@
 // }
 
 (function() {
-  var destString = "Bethnal%20Green";
+  var to = document.getElementById("from-to")[1].value;
+
+  var array = to.toLowerCase().split(" ");
+  var arr = array.map(function(x){
+    return x.slice(0,1).toUpperCase()+x.slice(1);
+  });
+  var destString = arr.join("%20");
+
   var wikiURL = "https://cors-anywhere.herokuapp.com/https://en.wikipedia.org/w/api.php?action=query&prop=extracts&format=json&exintro=&titles=" + destString;
 
   function wikiExtract() {

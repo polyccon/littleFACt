@@ -1,34 +1,30 @@
+
+
 body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-content: center;
   color: #333e4f;
 }
 
+.container {
+  max-width: 60vw;
+  margin: 0 auto;
+
+}
 .header {
-  display: flex;
-  justify-content: center;
+  text-align: center;
 }
 
 section {
-  display: flex;
-  justify-content: center;
+  text-align: center;
 }
 
 form {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  width: 90%;
-  font-size: 8vw;
+  font-size: 3vw;
   cursor: pointer;
 }
 
 label {
-  display: flex;
-  justify-content: center;
   font-family: 'Shrikhand', cursive;
+  margin-top: 3vw;
 }
 
 input:focus {
@@ -36,80 +32,73 @@ input:focus {
 }
 
 input[type="text"] {
-  font-size: 5vw;
+  font-size: 3vw;
   border-radius: 1.5vw;
-  padding: 2vw;
-  margin: 1vw;
+  padding: 1.5vw;
   font-family: 'Caveat', cursive;
+  display: block;
+  width: 100%;
+  margin-bottom: 3vw;
 }
 
 input[type="submit"] {
-  font-size: 6vw;
+  font-size: 4vw;
   background-color: #404e62;
   border-radius: 1.5vw;
-  padding: 2vw;
-  margin: 1vw;
+  padding: 1.5vw 8vw;
   border-color: #333e4f;
   color: white;
   font-family: 'Abril Fatface', cursive;
 }
 
 h1 {
-  font-size: 15vw;
+  font-size: 7vw;
   font-family: 'Shrikhand', cursive;
+  margin: 0 auto 3vw auto;
 }
 
 h2 {
   font-family: 'Shrikhand', cursive;
-  font-size: 8vw;
-  margin-left: 10vw;
+  font-size: 6vw;
+  text-align: left;
 }
 
 #destination-extract {
-  margin: 0 7vw 8vw 7vw;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 p {
-  font-size: 5vw;
+  font-size: 3vw;
   font-family: 'Slabo 27px', serif;
-  /*margin: 10vw;*/
+  text-align: left;
 }
 
 #tfl-results {
   margin: 2vh auto;
 }
 
-#linesHeader {
-  font-family: 'Shrikhand', cursive;
-  font-size: 8vw;
-  /*margin: 0 0 0 10vw !important;*/
-}
-
-
-/*#lines {
-  background: tomato;
-  padding: 5px;
-  margin: 8vw;
-  text-align: center;
-  border-radius: 1.5vw;
-}*/
+.minutes {
+   text-align: center;
+   margin-top: 7vw;
+ }
 
 .animated {
   animation-duration: 2.5s;
   animation-fill-mode: both;
   animation-iteration-count: infinite;
-  color: rgb(71, 43, 45)
+  color: rgb(247, 136, 20)
 }
 
 @keyframes pulse {
   0% {
-    transform: scale(2);
+    transform: scale(1);
   }
   50% {
-    transform: scale(2.5);
+    transform: scale(1.5);
   }
   100% {
-    transform: scale(2);
+    transform: scale(1);
   }
 }
 
@@ -124,4 +113,36 @@ p {
   / FF3.6-15 / background-color: -webkit-linear-gradient(top, #d6f9ff 0%, #9ee8fa 100%);
   / Chrome10-25, Safari5.1-6 / background-color: linear-gradient(to bottom, #d6f9ff 0%, #9ee8fa 100%);
   / W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+/
+}
+
+@media all and (max-width: 700px) {
+  form {
+    font-size: 6vw;
+    margin-top: 7vh;
+  }
+
+  input[type="text"] {
+    font-size: 7vw;
+    padding: 3vw;
+    padding-right: 0;
+  }
+
+  input[type="submit"] {
+    font-size: 7vw;
+    padding: 3vw 20vw 3vw 20vw;
+    margin-top: 5vh;
+
+  }
+
+  h1 {
+    font-size: 10vw;
+    margin-top: 10vh;
+  }
+
+  h2 {
+    font-size: 7vw;
+  }
+  p {
+    font-size: 8vw;
+  }
 }

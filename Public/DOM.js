@@ -12,18 +12,12 @@
     if (to.indexOf('station') === -1) {
       to += "station";
     }
-    // CODE FOR WIKI STATION-API PROBLEM
-    //if (inputTo.indexOf('station') !== -1 ) {
-    //    inputTo.replace(' station', "");
-    // }
-    // console.log(inputTo);
+
+    tflAPI(tflURL(from, to), function(resultsToShow) {
 
 
-    tflAPI(tflURL(from,to), function (resultsToShow) {
-
-
-       document.getElementById('duration').textContent = resultsToShow.journeys[0].duration;
-       document.getElementById('tfl-results').style.display = 'block';
+      document.getElementById('duration').textContent = resultsToShow.journeys[0].duration;
+      document.getElementById('tfl-results').style.display = 'block';
 
 
       var lineLeg = resultsToShow.journeys[0].legs;

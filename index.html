@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 
 <head>
   <meta charset="utf-8">
@@ -12,32 +13,32 @@
 
 <body class="grad">
   <div class="container">
-  <div class="header">
-    <h1>little FACt</h1>
+    <div class="header">
+      <h1>little FACt</h1>
+    </div>
+
+    <section class="journey-planner">
+      <form id="from-to">
+        <label for="from">Where from?</label>
+        <input type="text" placeholder="E.g. Brixton" id="from" autofocus="" aria-label="">
+        <label for="to">Where to?</label>
+        <input type="text" placeholder="E.g. Bethnal Green" id="to" autofocus="" aria-label="">
+        <input type="submit" value="Submit">
+      </form>
+    </section>
+
+
+    <section id="tfl-results" style="display: none">
+      <p class="minutes animated pulse"><span id="duration"></span>&nbsp;minutes away!</p>
+      <h2>Lines<p id="lines"></p></h2>
+    </section>
+
+
+    <section id="fun-fact" style="display: none">
+      <h2>Did you know?<p id="destination"></p></h2>
+      <p id="destination-extract"></p>
+    </section>
   </div>
-
-  <section class="journey-planner">
-    <form id="from-to">
-      <label for="from">Where from?</label>
-      <input type="text" placeholder="E.g. Brixton" id="from" autofocus="" aria-label="">
-      <label for="to">Where to?</label>
-      <input type="text" placeholder="E.g. Bethnal Green" id="to" autofocus="" aria-label="">
-      <input type="submit" value="Submit">
-    </form>
-  </section>
-
-
-  <section id="tfl-results" style="display: none">
-    <p class="minutes animated pulse"><span id="duration"></span>&nbsp;minutes away!</p>
-    <h2>Lines<p id="lines"></p></h2>
-  </section>
-
-
-  <section id="fun-fact" style="display: none">
-    <h2>Did you know?<p id="destination"></p></h2>
-    <p id="destination-extract"></p>
-  </section>
-</div>
 </body>
 
 <script src="./Public/DOM.js" type="text/javascript"></script>

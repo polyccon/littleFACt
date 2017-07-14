@@ -21,13 +21,13 @@ test('destStr', function(t) {
 });
 test('destStr', function(t) {
   var actual = logic.destStr("bethnal green").indexOf(" ");
-  var expected = "Bethnal%20Green".indexOf(" ");
+  var expected = -1;
   t.equal(actual, expected, 'should return string without whitespaces');
   t.end();
 });
 test('destStr', function(t) {
   var actual = logic.destStr("hyde park").indexOf("%20");
-  var expected = "Hyde%20Park".indexOf("%20");
+  var expected = -1;
   t.equal(actual, expected, 'should return string with whitespaces replaced by %20');
   t.end();
 });

@@ -1,13 +1,25 @@
-**WHY (describing the purpose)-User stories**
-We decided that our app should allow users to type in a start and end point for a London journey and that the app should return a brief overview on how long the journey will take with a bonus fact about the destination for the reader to learn about during their journey. We thought that this app would be useful for tourists as well as curious Londoners, and should be mobile first as most users would use it on-the-go.
+**WHY**
 
-**WHAT (describing your site)**
+We decided that our app should allow users to type in a start station and end station for a London journey and that the app should return a brief overview on how long the journey will take with a bonus fact about the destination for the reader to learn about during their journey. We thought that this app would be useful for tourists as well as curious Londoners, and should be mobile first as most users would use it on-the-go.
+
+**WHAT**
+
+***Our MVP***
+
+Our application only displays information on duration of the whole journey as well as lines that the user takes during the journey. 
+
+Also it display information from Wikipedia on the end station.
+
 
 **STRETCH goals**
+
 On top of this, we added stretch goals of having Line information (what lines the journey involves) as well as the status of them. Finally, our last stretch goal was the provide information for what time the next train to that destination is. These were assigned as stretch goals because they weren't necessary to our MVP but would have been helpful information.
 We started planning our software architecture on a whiteboard and this also proved helpful for assigning which tasks we should begin with. However, before starting on our code we created our repo, added in plenty of issues and thought about our file structure.
 
-**HOW (describing the journey to completion)**
+**HOW**
+
+![Alt text](/picture.jpg?raw=true)
+
 We decided to use two APIs from the given list after being unable to find external APIs which didn't require some level of user authentication for what we wanted them to do. The APIs we decided on were the TFL and Wikipedia ones.
 When looking at the file architecture, we decided to go for a front-end/back-end structure. We utilised a Public folder in the directory root which would store all front-end related files. Within this we had a assets folder which would compartmentalise css specific files and images. We learnt about the use of a normalize.css file, which s a small CSS file that provides better cross-browser consistency in the default styling of HTML elements. We installed this by running npm install --save normalize.css
 

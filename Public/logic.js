@@ -4,7 +4,7 @@ function destStr(string) {
     return x.slice(0, 1).toUpperCase() + x.slice(1);
   });
   var str = arr.join("%20");
-  if (str === "Angel" || str === "Bank" || str === "Borough" || str == "Barbican" || str === "Monument" || str === "Oval" || str === "Wimbledon" || str === "Temple") {
+  if (str === "Angel" || str === "Bank" || str === "Borough" || str == "Barbican" || str === "Monument" || str === "Oval" || str === "Wimbledon" || str === "Temple" || str === "Archway") {
     str = str + ",%20London";
   }
   return str;
@@ -93,53 +93,6 @@ function tflAPI(url, callback) {
   xhr.open("GET", url, true);
   xhr.send();
 };
-
-//
-// /* Parellel function */
-//
-// function parallel(tasks, callback) {
-//   // new code goes in this function here!
-//   var results = [];
-//   var count = 0;
-//   tasks.forEach(function(task, index) {
-//     task(function(err, result) {
-//       // if there's an error, call THE callback
-//       if (err) {
-//         callback(err, null);
-//         return;
-//       }
-//       // push results to results array and increment counter. uses index to push results in the right order
-//       results[index] = result;
-//       count++;
-//       // if all tasks have completed, call THE callback
-//       if (count === tasks.length) {
-//         callback(undefined, results);
-//       }
-//     })
-//   })
-// }
-// parallel([
-//   function(callback) {
-//     setTimeout(function() {
-//       callback(undefined, 1);
-//     }, 2000);
-//   },
-//   function(callback) {
-//     setTimeout(function() {
-//       callback(undefined, 2);
-//     }, 1000);
-//   },
-//   function(callback) {
-//     setTimeout(function() {
-//       callback(undefined, 3);
-//     }, 1500);
-//   },
-//
-// ], function(err, result) {
-//   console.log('err', err); // undefined
-//   console.log('result', result); // [1,2,3]
-// });
-
 
 
 if (typeof module !== 'undefined') {

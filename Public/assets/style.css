@@ -71,7 +71,7 @@ h2 {
 }
 
 p {
-  font-size: 8vw;
+  font-size: 5vw;
   font-family: 'Slabo 27px', serif;
   text-align: left;
 }
@@ -89,7 +89,7 @@ p {
   animation-duration: 2.5s;
   animation-fill-mode: both;
   animation-iteration-count: infinite;
-  color: rgb(247, 136, 20)
+  color: rgb(247, 112, 36)
 }
 
 @keyframes pulse {

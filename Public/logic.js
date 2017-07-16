@@ -1,4 +1,4 @@
-var testwikiurl = "https://cors-anywhere.herokuapp.com/https://en.wikipedia.org/w/api.php?action=query&prop=extracts&format=json&exintro=&titles=victoria,%20London"
+// var testwikiurl = "https://cors-anywhere.herokuapp.com/https://en.wikipedia.org/w/api.php?action=query&prop=extracts&format=json&exintro=&titles=victoria,%20London"
 
 function httpRequest(url, nextfunction) {
   var xhr = new XMLHttpRequest();
@@ -29,10 +29,9 @@ function createwikiUrl(inputTo) {
   return "https://cors-anywhere.herokuapp.com/https://en.wikipedia.org/w/api.php?action=query&prop=extracts&format=json&exintro=&titles=" + destString;
 }
 
- var wikiURL = createwikiUrl(inputTo);
+
 
 function wikiExtract(data) {
-
 
  var keys = Object.keys(data.query.pages);
  var destinationName = data.query.pages[keys[0]].title;
@@ -50,13 +49,6 @@ function wikiExtract(data) {
 }
 document.getElementById('fun-fact').style.display = 'block';
 }
-
-function wikiApi(inputTo) {
-  var wikiURL = createwikiUrl(inputTo);
-    wikiExtract();
-  };
-
-httpRequest(wikiURL, wikiExtract);
 
 
 

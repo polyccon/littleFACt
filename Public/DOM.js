@@ -37,11 +37,13 @@
       })
 
     })
+var wikiURL = createwikiUrl(inputTo);
+httpRequest(wikiURL, wikiExtract);
 
-    wikiApi(inputTo);
   })
 
 })()
+
 
 function domwikiFunction(destinationName, extr) {
   var destinationDrop = document.getElementById("destination");

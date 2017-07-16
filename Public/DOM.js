@@ -1,5 +1,3 @@
-
-
 (function() {
 
   document.getElementById("from-to").addEventListener("submit", function(event) {
@@ -14,35 +12,30 @@
     if (to.indexOf('station') === -1) {
       to += "station";
     }
+    httpRequest(tflURL(from, to), tflAPI)
 
-    tflAPI(tflURL(from, to), function(resultsToShow) {
-
-    //  if (resultsToShow.journeys[0].duration){
-      document.getElementById('duration').textContent = resultsToShow.journeys[0].duration;
-      document.getElementById('tfl-results').style.display = 'block';
-    // }else{
-    //   document.getElementById("duration").textContent = "Oops! Station name is not recognised!";
-    //
-    // }
-
-      var lineLeg = resultsToShow.journeys[0].legs;
-      console.log(lineLeg);
-      var linesNode = document.getElementById('lines');
-      linesNode.innerHTML = "";
-      lineLeg.forEach(function(line) {
-        var newline = document.createElement('p');
-        newline.textContent = line.routeOptions[0].name;
-        linesNode.appendChild(newline);
-
-      })
-
-    })
-var wikiURL = createwikiUrl(inputTo);
-httpRequest(wikiURL, wikiExtract);
-
+    var wikiURL = createwikiUrl(inputTo);
+    httpRequest(wikiURL, wikiExtract);
   })
 
 })()
+
+
+function domtflFunction(resultsToShow) {
+
+  document.getElementById('duration').textContent = resultsToShow.journeys[0].duration;
+  document.getElementById('tfl-results').style.display = 'block';
+
+  var lineLeg = resultsToShow.journeys[0].legs;
+  var linesNode = document.getElementById('lines');
+  linesNode.innerHTML = "";
+  lineLeg.forEach(function(line) {
+    var newline = document.createElement('p');
+    newline.textContent = line.routeOptions[0].name;
+    linesNode.appendChild(newline);
+  })
+}
+
 
 
 function domwikiFunction(destinationName, extr) {
@@ -51,4 +44,5 @@ function domwikiFunction(destinationName, extr) {
 
   var extractDrop = document.getElementById("destination-extract");
   extractDrop.textContent = extr;
+  document.getElementById('fun-fact').style.display = 'block';
 }

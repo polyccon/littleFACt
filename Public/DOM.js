@@ -14,10 +14,11 @@
     }
     httpRequest(tflURL(from, to), tflAPI)
 
-    var wikiURL = createwikiUrl(inputTo);
-    httpRequest(wikiURL, wikiExtract);
+    var wikiurl = createwikiUrl(inputTo);
+    var extraData = {wikiURL: wikiurl};
+    httpRequest(wikiurl, wikiExtract, extraData);
 
-    
+
 
   })
 

@@ -1,12 +1,9 @@
-function httpRequest(url, nextfunction) {
+function httpRequest(url, nextFunction, extraData) {
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function() {
     if (xhr.readyState == 4 && xhr.status == 200) {
       var data = JSON.parse(xhr.responseText);
-      nextfunction(data);
-      if (extr.length<50){
-        httpRequest(url+",%20London", nextfunction);
-      }
+      nextFunction(data, extraData);
     }
   }
   xhr.open('GET', url, true);
@@ -32,21 +29,30 @@ function createwikiUrl(inputTo) {
 }
 
 
-function wikiExtract(data, wikiURL, httpRequest) {
 
+
+function wikiExtract(data, extraData) {
 
   var keys = Object.keys(data.query.pages);
   var destinationName = data.query.pages[keys[0]].title;
-  var extr = data.query.pages[keys[0]].extract.replace(/(&nbsp;|<([^>]+)>)/ig, "");
-
-  // if (extr.length<50) {
-  //   var url = createwikiUrl(wikiURL +",%20London");
-  //   httpRequest(url, wikiExtract);
-
-    if (extr === "") {
+  var extract = data.query.pages[keys[0]].extract;
+  var extr ='';
+  if (extract){
+      extr =extract.replace(/(&nbsp;|<([^>]+)>)/ig, "");
+    }
+  if (extr.length < 50) {
+    if (extraData.wikiURL) {
+      var url = extraData.wikiURL + ",%20London";
+      httpRequest(url, wikiExtract, {
+        secondCall: true
+      });
+      return;
+    }
+    if (extraData.secondCall && extr === "") {
       extr = "Sorry! " + destinationName + " doesn't seem to have a wikipedia page yet, why don't you make one yourself?"
     }
-  
+  }
+
   domwikiFunction(destinationName, extr);
 }
 

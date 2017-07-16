@@ -16,6 +16,9 @@
 
     var wikiURL = createwikiUrl(inputTo);
     httpRequest(wikiURL, wikiExtract);
+
+    
+
   })
 
 })()
@@ -35,7 +38,6 @@ function domtflFunction(resultsToShow) {
     linesNode.appendChild(newline);
   })
 }
-
 
 
 function domwikiFunction(destinationName, extr) {

@@ -4,6 +4,9 @@ function httpRequest(url, nextfunction) {
     if (xhr.readyState == 4 && xhr.status == 200) {
       var data = JSON.parse(xhr.responseText);
       nextfunction(data);
+      if (extr.length<50){
+        httpRequest(url+",%20London", nextfunction);
+      }
     }
   }
   xhr.open('GET', url, true);
@@ -16,6 +19,7 @@ function destStr(string) {
     return x.slice(0, 1).toUpperCase() + x.slice(1);
   });
   var str = arr.join("%20");
+
   if (str === "Angel" || str === "Bank" || str === "Borough" || str == "Barbican" || str === "Monument" || str === "Oval" || str === "Wimbledon" || str === "Temple" || str === "Archway") {
     str = str + ",%20London";
   }
@@ -28,23 +32,23 @@ function createwikiUrl(inputTo) {
 }
 
 
-function wikiExtract(data) {
+function wikiExtract(data, wikiURL, httpRequest) {
 
-    var keys = Object.keys(data.query.pages);
-    var destinationName = data.query.pages[keys[0]].title;
-    var extr = data.query.pages[keys[0]].extract.replace(/(&nbsp;|<([^>]+)>)/ig, "");
 
-    if (extr.length < 50) {
-      wikiURL += ",%20London";
-      //wikiExtract();
+  var keys = Object.keys(data.query.pages);
+  var destinationName = data.query.pages[keys[0]].title;
+  var extr = data.query.pages[keys[0]].extract.replace(/(&nbsp;|<([^>]+)>)/ig, "");
 
-      if (extr === "") {
-        extractDrop.textContent = "Sorry! " + destinationName + " doesn't seem to have a wikipedia page yet, why don't you make one yourself?"
-      }
+  // if (extr.length<50) {
+  //   var url = createwikiUrl(wikiURL +",%20London");
+  //   httpRequest(url, wikiExtract);
+
+    if (extr === "") {
+      extr = "Sorry! " + destinationName + " doesn't seem to have a wikipedia page yet, why don't you make one yourself?"
     }
-    domwikiFunction(destinationName, extr);
+  
+  domwikiFunction(destinationName, extr);
 }
-
 
 
 
@@ -59,17 +63,15 @@ function tflURL(from, to) {
 
 function tflAPI(data) {
 
+
   var fromOptions = data.fromLocationDisambiguation.disambiguationOptions;
   var toOptions = data.toLocationDisambiguation.disambiguationOptions;
 
-  var matchqufrom = fromOptions.matchQuality;
-  var matchquto = toOptions.matchQuality;
+  var newFrom = fromOptions[0].place.icsCode;
+  var newTo = toOptions[0].place.icsCode;
 
+  domtflFunction(resultsToShow);
 
-    var newFrom = fromOptions[0].place.icsCode;
-    var newTo = toOptions[0].place.icsCode;
-
-    domtflFunction(resultsToShow);
 }
 
 

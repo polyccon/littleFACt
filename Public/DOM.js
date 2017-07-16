@@ -1,3 +1,5 @@
+
+
 (function() {
 
   document.getElementById("from-to").addEventListener("submit", function(event) {
@@ -15,10 +17,13 @@
 
     tflAPI(tflURL(from, to), function(resultsToShow) {
 
-
+    //  if (resultsToShow.journeys[0].duration){
       document.getElementById('duration').textContent = resultsToShow.journeys[0].duration;
       document.getElementById('tfl-results').style.display = 'block';
-
+    // }else{
+    //   document.getElementById("duration").textContent = "Oops! Station name is not recognised!";
+    //
+    // }
 
       var lineLeg = resultsToShow.journeys[0].legs;
       console.log(lineLeg);
@@ -36,11 +41,12 @@
     wikiApi(inputTo);
   })
 
-
-
-
-
-
-
-
 })()
+
+function domwikiFunction(destinationName, extr) {
+  var destinationDrop = document.getElementById("destination");
+  destinationDrop.textContent = destinationName;
+
+  var extractDrop = document.getElementById("destination-extract");
+  extractDrop.textContent = extr;
+}

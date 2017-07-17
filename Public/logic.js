@@ -36,10 +36,10 @@ function wikiExtract(data, extraData) {
   var keys = Object.keys(data.query.pages);
   var destinationName = data.query.pages[keys[0]].title;
   var extract = data.query.pages[keys[0]].extract;
-  var extr ='';
-  if (extract){
-      extr =extract.replace(/(&nbsp;|<([^>]+)>)/ig, "");
-    }
+  var extr = '';
+  if (extract) {
+    extr = extract.replace(/(&nbsp;|<([^>]+)>)/ig, "");
+  }
   if (extr.length < 50) {
     if (extraData.wikiURL) {
       var url = extraData.wikiURL + ",%20London";
@@ -67,7 +67,7 @@ function tflURL(from, to) {
   return url;
 }
 
-function tflAPI(data) {
+function tflAPI(data, extraD) {
 
 
   var fromOptions = data.fromLocationDisambiguation.disambiguationOptions;
@@ -75,10 +75,16 @@ function tflAPI(data) {
 
   var newFrom = fromOptions[0].place.icsCode;
   var newTo = toOptions[0].place.icsCode;
-
-  domtflFunction(resultsToShow);
-
+  if (extraD.firstcall) {
+    httpRequest(tflURL(newFrom, newTo), domtflFunction(data), {
+      secondCall: true
+    });
+  }
+  if (extraD.secondCall){
+    return;
+  }
 }
+//}
 
 
 

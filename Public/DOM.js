@@ -12,10 +12,15 @@
     if (to.indexOf('station') === -1) {
       to += "station";
     }
-    httpRequest(tflURL(from, to), tflAPI)
+    var extraD = {
+      firstcall: true
+    };
+    httpRequest(tflURL(from, to), tflAPI, extraD);
 
     var wikiurl = createwikiUrl(inputTo);
-    var extraData = {wikiURL: wikiurl};
+    var extraData = {
+      wikiURL: wikiurl
+    };
     httpRequest(wikiurl, wikiExtract, extraData);
 
 

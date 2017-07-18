@@ -13,15 +13,15 @@
       to += "station";
     }
     var extraD = {
-      firstcall: true
+      tflURL: 'whatever'
     };
-    httpRequest(tflURL(from, to), tflAPI, extraD);
+    httpRequest(tflURL(from, to), tflAPI, 300, extraD);
 
     var wikiurl = createwikiUrl(inputTo);
     var extraData = {
       wikiURL: wikiurl
     };
-    httpRequest(wikiurl, wikiExtract, extraData);
+    httpRequest(wikiurl, wikiExtract, 200, extraData);
 
 
 
@@ -30,12 +30,12 @@
 })()
 
 
-function domtflFunction(resultsToShow) {
+function domtflFunction(duration, legs) {
 
-  document.getElementById('duration').textContent = resultsToShow.journeys[0].duration;
+  document.getElementById('duration').textContent = duration;
   document.getElementById('tfl-results').style.display = 'block';
 
-  var lineLeg = resultsToShow.journeys[0].legs;
+  var lineLeg = legs;
   var linesNode = document.getElementById('lines');
   linesNode.innerHTML = "";
   lineLeg.forEach(function(line) {

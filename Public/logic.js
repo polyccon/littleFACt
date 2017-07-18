@@ -1,7 +1,7 @@
-function httpRequest(url, nextFunction, extraData) {
+function httpRequest(url, nextFunction, status, extraData) {
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function() {
-    if (xhr.readyState == 4 && xhr.status == 200) {
+    if (xhr.readyState == 4 && xhr.status == status) {
       var data = JSON.parse(xhr.responseText);
       nextFunction(data, extraData);
     }
@@ -43,7 +43,7 @@ function wikiExtract(data, extraData) {
   if (extr.length < 50) {
     if (extraData.wikiURL) {
       var url = extraData.wikiURL + ",%20London";
-      httpRequest(url, wikiExtract, {
+      httpRequest(url, wikiExtract, 200, {
         secondCall: true
       });
       return;
@@ -52,7 +52,6 @@ function wikiExtract(data, extraData) {
       extr = "Sorry! " + destinationName + " doesn't seem to have a wikipedia page yet, why don't you make one yourself?"
     }
   }
-
   domwikiFunction(destinationName, extr);
 }
 
@@ -69,28 +68,28 @@ function tflURL(from, to) {
 
 function tflAPI(data, extraD) {
 
+  if (extraD.tflURL) {
+    var fromOptions = data.fromLocationDisambiguation.disambiguationOptions;
+    var toOptions = data.toLocationDisambiguation.disambiguationOptions;
 
-  var fromOptions = data.fromLocationDisambiguation.disambiguationOptions;
-  var toOptions = data.toLocationDisambiguation.disambiguationOptions;
+    var newFrom = fromOptions[0].place.icsCode;
+    var newTo = toOptions[0].place.icsCode;
 
-  var newFrom = fromOptions[0].place.icsCode;
-  var newTo = toOptions[0].place.icsCode;
-  if (extraD.firstcall) {
-    httpRequest(tflURL(newFrom, newTo), domtflFunction(data), {
+    httpRequest(tflURL(newFrom, newTo), tflAPI, 200, {
       secondCall: true
     });
+  } else if (extraD.secondCall) {
+    var duration = data.journeys[0].duration;
+    var legs = data.journeys[0].legs;
+    domtflFunction(duration, legs);
+    }
   }
-  if (extraD.secondCall){
-    return;
+
+
+
+  if (typeof module !== 'undefined') {
+    module.exports = {
+      tflURL,
+      destStr
+    };
   }
-}
-//}
-
-
-
-if (typeof module !== 'undefined') {
-  module.exports = {
-    tflURL,
-    destStr
-  };
-}

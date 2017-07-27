@@ -29,6 +29,18 @@
 
 })()
 
+function domelse(string) {
+
+  var durnode = document.getElementById('duration');
+  durnode.innerHTML = "";
+  var newdur = document.createElement('holla');
+  newdur.textContent = string;
+  durnode.appendChild(newdur);
+
+  document.getElementById('tfl-results').style.display = 'none';
+
+  document.getElementById('fun-fact').style.display = 'none';
+}
 
 function domtflFunction(duration, legs) {
 

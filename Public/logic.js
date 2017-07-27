@@ -72,24 +72,34 @@ function tflAPI(data, extraD) {
     var fromOptions = data.fromLocationDisambiguation.disambiguationOptions;
     var toOptions = data.toLocationDisambiguation.disambiguationOptions;
 
+    var matchquto = toOptions[1].matchQuality;
+    console.log(matchquto);
+    var matchqufrom = fromOptions[1].matchQuality;
+    console.log(matchqufrom);
     var newFrom = fromOptions[0].place.icsCode;
     var newTo = toOptions[0].place.icsCode;
-
-    httpRequest(tflURL(newFrom, newTo), tflAPI, 200, {
-      secondCall: true
-    });
+    if (fromOptions != undefined && toOptions != undefined && matchquto != undefined && matchqufrom != undefined && matchquto >= 855 && matchqufrom >= 855) {
+      httpRequest(tflURL(newFrom, newTo), tflAPI, 200, {
+        secondCall: true
+      });
+    } else {
+      var string = "Oops! Station name is not recognised!"
+      domelse(string);
+      console.log("Im here");
+    }
   } else if (extraD.secondCall) {
+
     var duration = data.journeys[0].duration;
     var legs = data.journeys[0].legs;
     domtflFunction(duration, legs);
-    }
   }
+}
 
 
 
-  if (typeof module !== 'undefined') {
-    module.exports = {
-      tflURL,
-      destStr
-    };
-  }
+if (typeof module !== 'undefined') {
+  module.exports = {
+    tflURL,
+    destStr
+  };
+}

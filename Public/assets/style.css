@@ -1,14 +1,13 @@
-
-
 body {
   color: #333e4f;
+  background: #d6f9ff;
 }
 
 .container {
   max-width: 60vw;
   margin: 0 auto;
-
 }
+
 .header {
   text-align: center;
 }
@@ -18,7 +17,8 @@ section {
 }
 
 form {
-  font-size: 3vw;
+  font-size: 6vw;
+  margin-top: 7vh;
   cursor: pointer;
 }
 
@@ -32,9 +32,10 @@ input:focus {
 }
 
 input[type="text"] {
-  font-size: 3vw;
+  font-size: 7vw;
   border-radius: 1.5vw;
-  padding: 1.5vw;
+  padding: 3vw;
+  padding-right: 0;
   font-family: 'Caveat', cursive;
   display: block;
   width: 100%;
@@ -42,24 +43,25 @@ input[type="text"] {
 }
 
 input[type="submit"] {
-  font-size: 4vw;
+  font-size: 7vw;
   background-color: #404e62;
   border-radius: 1.5vw;
-  padding: 1.5vw 8vw;
+  padding: 3vw 20vw 3vw 20vw;
+  margin-top: 5vh;
   border-color: #333e4f;
   color: white;
   font-family: 'Abril Fatface', cursive;
 }
 
 h1 {
-  font-size: 7vw;
+  font-size: 10vw;
   font-family: 'Shrikhand', cursive;
-  margin: 0 auto 3vw auto;
+  margin: 10vh auto 3vw auto;
 }
 
 h2 {
   font-family: 'Shrikhand', cursive;
-  font-size: 6vw;
+  font-size: 7vw;
   text-align: left;
 }
 
@@ -69,7 +71,7 @@ h2 {
 }
 
 p {
-  font-size: 3vw;
+  font-size: 5vw;
   font-family: 'Slabo 27px', serif;
   text-align: left;
 }
@@ -79,15 +81,15 @@ p {
 }
 
 .minutes {
-   text-align: center;
-   margin-top: 7vw;
- }
+  text-align: center;
+  margin-top: 7vw;
+}
 
 .animated {
   animation-duration: 2.5s;
   animation-fill-mode: both;
   animation-iteration-count: infinite;
-  color: rgb(247, 136, 20)
+  color: rgb(247, 112, 36)
 }
 
 @keyframes pulse {
@@ -107,42 +109,29 @@ p {
   animation-duration: 1s;
 }
 
-.grad {
-  background: #d6f9ff;
-  / Old browsers / background-color: -moz-linear-gradient(top, #d6f9ff 0%, #9ee8fa 100%);
-  / FF3.6-15 / background-color: -webkit-linear-gradient(top, #d6f9ff 0%, #9ee8fa 100%);
-  / Chrome10-25, Safari5.1-6 / background-color: linear-gradient(to bottom, #d6f9ff 0%, #9ee8fa 100%);
-  / W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+/
-}
-
-@media all and (max-width: 700px) {
+@media screen and (min-width: 768px) {
   form {
-    font-size: 6vw;
-    margin-top: 7vh;
+    font-size: 4vw;
   }
-
-  input[type="text"] {
-    font-size: 7vw;
-    padding: 3vw;
-    padding-right: 0;
+  container {
+    max-width: 768px;
   }
-
+  /*input[type="text"] {
+    font-size: 3vw;
+    padding: 1.5vw;
+  }*/
   input[type="submit"] {
-    font-size: 7vw;
-    padding: 3vw 20vw 3vw 20vw;
-    margin-top: 5vh;
-
+    font-size: 4vw;
+    padding: 1.5vw 8vw;
   }
-
   h1 {
-    font-size: 10vw;
-    margin-top: 10vh;
+    /*font-size: 7vw;*/
+    margin-top: 0 auto 3vw auto;
   }
-
   h2 {
-    font-size: 7vw;
+    font-size: 6vw;
   }
   p {
-    font-size: 8vw;
+    font-size: 3vw;
   }
 }

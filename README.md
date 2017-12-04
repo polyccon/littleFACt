@@ -1,3 +1,5 @@
+I love this project, it was from API week during FAC so we made 2 API calls from the frontend. I refactored the code and added some error handling in my forked version.
+
 **WHY**
 
 We decided that our app should allow users to type in a start station and end station for a London journey and that the app should return a brief overview on how long the journey will take with a bonus fact about the destination for the reader to learn about during their journey. We thought that this app would be useful for tourists as well as curious Londoners, and should be mobile first as most users would use it on-the-go.

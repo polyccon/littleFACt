@@ -1,4 +1,4 @@
-I love this project, it was from API week during FAC so we made 2 API calls from the frontend. I refactored the code and added some error handling in my forked version.
+> I love this project, it was from API week during FAC so we made 2 API calls from the frontend. I refactored the code and added some error handling in my forked version.
 
 **WHY**
 
